@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Furniture</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h2 class="title">Room Vision</h2>
+        <hr>
+
+        <ul class="nav flex-column">
+            <li>
+                <a class="nav-link" href="home.html">
+                    <img src="icon/Home.png" alt="Home">
+                    Home
+                </a>
+            </li>
+            <li>
+                <a class="nav-link" href="category.html">
+                    <img src="icon/Category.png" alt="Category">
+                    Categories
+                </a>
+            </li>
+            <li>
+                <a class="nav-link" href="#">
+                    <img src="icon/Furniture.png" alt="Furniture">
+                    Furniture
+                </a>
+            </li>
+            <li>
+                <a class="nav-link" href="inspiration.html">
+                    <img src="icon/Inspiration.png" alt="Inspiration">
+                    Inspiration
+                </a>
+            </li>
+        </ul>
+        <div class="footer">
+            <a class="nav-link" href="">
+                <img src="icon/Profile.png" alt="Profile">
+                Username
+            </a>
+        </div>
+    </div>
+    
+    <div id="mainContent" class="main-content">
+        <!-- App Bar -->
+        <div class="appbar">
+            <h2>Furniture</h2>
+        </div>
+
+        <!-- Page Content -->
+        <div style="margin: 10px;">
+            <div class="container mt-4">
+                <a type="button" class="addButton" href="addFurniture.html">
+                    <img src="icon/Add.png" alt="Add">
+                    Add New Record
+                </a>
+                <br>
+                <table class="table table-bordered custom-table" id="furnitureTable">
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Image</th>
+                            <th>Furniture Name</th>
+                            <th>Category</th>
+                            <th>Dimensions</th>
+                            <th>Description</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="src/sidebar.js"></script>
+    <script type="module" src="src/fetchFurniture.js"></script>
+</body>
+</html>

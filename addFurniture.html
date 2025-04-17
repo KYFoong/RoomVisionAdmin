@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Furniture</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h2 class="title">Room Vision</h2>
+        <hr>
+
+        <ul class="nav flex-column">
+            <li>
+                <a class="nav-link" href="home.html">
+                    <img src="icon/Home.png" alt="Home">
+                    Home
+                </a>
+            </li>
+            <li>
+                <a class="nav-link" href="category.html">
+                    <img src="icon/Category.png" alt="Category">
+                    Categories
+                </a>
+            </li>
+            <li>
+                <a class="nav-link" href="#">
+                    <img src="icon/Furniture.png" alt="Furniture">
+                    Furniture
+                </a>
+            </li>
+            <li>
+                <a class="nav-link" href="inspiration.html">
+                    <img src="icon/Inspiration.png" alt="Inspiration">
+                    Inspiration
+                </a>
+            </li>
+        </ul>
+        <div class="footer">
+            <a class="nav-link" href="">
+                <img src="icon/Profile.png" alt="Profile">
+                Username
+            </a>
+        </div>
+    </div>
+    
+    <div id="mainContent" class="main-content">
+        <!-- App Bar -->
+        <div class="appbar">
+            <h2>Add Furniture</h2>
+        </div>
+
+        <!-- Content -->
+        <div class="container mt-3">
+            <form id="furnitureForm">
+                <div class="form-group">
+                    <label for="furnitureName" class="form-label">Furniture Name</label>
+                    <input type="text" class="form-control" name="furnitureName" id="furnitureName" placeholder="Name" required>
+                </div>
+        
+                <div class="form-group">
+                    <label for="category" class="form-label">Category</label>
+                    <input type="text" class="form-control" name="category" id="category" placeholder="Category" required>
+                </div>
+        
+                <div class="form-group">
+                    Dimensions
+                    <div class="row">
+                        <div class="col-md-4">
+                            <input type="number" class="form-control" name="width" id="width" placeholder="Width" required>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="number" class="form-control" name="depth" id="depth" placeholder="Depth" required>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="number" class="form-control" name="height" id="height" placeholder="Height" required> 
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="form-group">
+                    <label for="description" class="form-label">Description</label> 
+                    <input type="text" class="form-control" name="description" id="description" placeholder="About the furniture..." required> 
+                </div>
+        
+                <div class="form-group">
+                    <label for="image" class="form-label">Image Link</label> 
+                    <input type="text" class="form-control" name="image" id="image" required> 
+                </div>
+        
+                <div class="form-group">
+                    <label for="model" class="form-label">3D Models</label>
+                    <input type="text" class="form-control" name="model" id="model" required> 
+                </div>
+                <div class="btn-group-lg mt-2 d-flex justify-content-end">
+                    <button type="button" value="Cancel" class="btn btn-default me-3">
+                    <input type="submit" value="Add" class="btn btn-primary" id="uploadFurniture">
+                </div>
+            </form>
+        </div>
+    <!-- Firebase SDK -->
+    <script type="module" src="src/firebase.js"></script>
+    <script type="module" src="src/manageFurniture.js"></script>
+</body>
+</html>
