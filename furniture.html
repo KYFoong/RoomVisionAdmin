@@ -8,82 +8,69 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <!--<link rel="stylesheet" href="https://cdn.datatables.net/2.3.1/css/dataTables.dataTables.css" />-->
     <link rel="stylesheet" href="style.css">
+    
+    <!--<link rel="stylesheet" href="https://cdn.datatables.net/searchbuilder/1.5.0/css/searchBuilder.dataTables.min.css">-->
+    <!--<link rel="stylesheet" href="https://cdn.datatables.net/datetime/1.5.1/css/dataTables.dateTime.min.css">-->
+    <!--<script src="https://cdn.datatables.net/datetime/1.5.1/js/dataTables.dateTime.min.js"></script>-->
+    <!--<script src="https://cdn.datatables.net/searchbuilder/1.5.0/js/dataTables.searchBuilder.min.js"></script>-->
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!--<script src="https://cdn.datatables.net/2.3.1/js/dataTables.js"></script>-->
+    <script type="module" src="src/fetchSideBar.js"></script>
+    <script type="module" src="src/fetchFurniture.js" defer></script>
+    
 </head>
 <body>
-    <div class="sidebar">
-        <h2 class="title">Room Vision</h2>
-        <hr>
-
-        <ul class="nav flex-column">
-            <li>
-                <a class="nav-link" href="home.html">
-                    <img src="icon/Home.png" alt="Home">
-                    Home
-                </a>
-            </li>
-            <li>
-                <a class="nav-link" href="category.html">
-                    <img src="icon/Category.png" alt="Category">
-                    Categories
-                </a>
-            </li>
-            <li>
-                <a class="nav-link" href="#">
-                    <img src="icon/Furniture.png" alt="Furniture">
-                    Furniture
-                </a>
-            </li>
-            <li>
-                <a class="nav-link" href="inspiration.html">
-                    <img src="icon/Inspiration.png" alt="Inspiration">
-                    Inspiration
-                </a>
-            </li>
-        </ul>
-        <div class="footer">
-            <a class="nav-link" href="">
-                <img src="icon/Profile.png" alt="Profile">
-                Username
-            </a>
-        </div>
+    <div id="sidebar-container">
+        
     </div>
     
     <div id="mainContent" class="main-content">
         <!-- App Bar -->
         <div class="appbar">
-            <h2>Furniture</h2>
+            <button id="toggleSidebar" class="sidebar-toggle-btn">☰</button>
+            <h2 style="margin: 0%;">Furniture</h2>
         </div>
 
         <!-- Page Content -->
         <div style="margin: 10px;">
             <div class="container mt-4">
-                <a type="button" class="addButton" href="addFurniture.html">
-                    <img src="icon/Add.png" alt="Add">
-                    Add New Record
-                </a>
+                <div class="d-flex justify-content-between align-items-center">
+                    <a type="button" class="addButton" href="addFurniture.html">
+                        <img src="icon/Add.png" alt="Add">
+                        Add New Record
+                    </a>
+                    
+                    <div class="searchArea">
+                        <label for="searchInput">Search: </label>
+                        <input type="text" id="searchInput" class="form-control" placeholder="Furniture / Category">
+                    </div>
+                </div>
                 <br>
                 <table class="table table-bordered custom-table" id="furnitureTable">
                     <thead>
                         <tr>
-                            <th>No.</th>
-                            <th>Image</th>
-                            <th>Furniture Name</th>
-                            <th>Category</th>
-                            <th>Dimensions</th>
-                            <th>Description</th>
-                            <th>Actions</th>
+                            <th style="width: 5%;">No.</th>
+                            <th style="width: 10%;">Image</th>
+                            <th style="width: 15%;">Furniture Name</th>
+                            <th style="width: 8%;">Category</th>
+                            <th style="width: 12%;">Dimensions</th>
+                            <th style="width: 40%;">Description</th>
+                            <th style="width: 10%;">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
             
                     </tbody>
                 </table>
+                <p id="noResults" class="text-center text-muted" style="display: none;">No record found.</p>
             </div>
         </div>
     </div>
 
     <script src="src/sidebar.js"></script>
-    <script type="module" src="src/fetchFurniture.js"></script>
 </body>
 </html>

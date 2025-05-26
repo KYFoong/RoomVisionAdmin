@@ -10,6 +10,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet">
+
     <script type="module" src="src/fetchSideBar.js"></script>
 </head>
 <body>
@@ -21,32 +24,37 @@
         <!-- App Bar -->
         <div class="appbar">
             <button id="toggleSidebar" class="sidebar-toggle-btn">☰</button>
-            <h2 style="margin: 0%;">Add Category</h2>
+            <h2 style="margin: 0%;">Add Inspiration</h2>
         </div>
 
         <!-- Content -->
         <div class="container mt-3">
-            <form id="categoryForm">
+            <form id="inspirationForm">
                 <div class="form-group">
-                    <label for="categoryName" class="form-label">Category Name</label>
-                    <input type="text" class="form-control" name="categoryName" id="categoryName" placeholder="Name" required>
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" class="form-control" name="title" id="title" placeholder="Inspiration title" required>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="description" class="form-label">Description</label>
+                    <div id="editor" class="form-control">
+                        <p>Describe your inspiration...</p>
+                    </div>
+                    <!--<input type="hidden" name="description" id="description">-->
                 </div>
                 <br>
                 <div class="form-group" id="image-div">
-                    <label for="categoryIcon" class="form-label">Category Icon</label>
-                    <input type="file" class="form-control" name="categoryIcon" id="categoryIcon" placeholder="Icon" accept="image/*" required>
-                    <br>
-                    <!-- Image Preview -->
-                    
+                    <label for="image" class="form-label">Image</label>
+                    <input type="file" class="form-control" name="image" id="image" placeholder="Image" accept="image/*" required>
                 </div>
                 <br>
                 <div class="btn-group-lg mt-2 d-flex justify-content-end">
-                    <button type="button" class="cancelButton" onclick="window.location.href='category.html'">Cancel</button>
-                    <input type="submit" value="Add" class="editFormButton" id="uploadCategory">
+                    <button type="button" class="cancelButton" onclick="window.location.href='inspiration.html'">Cancel</button>
+                    <input type="submit" value="Add" class="editFormButton" id="uploadInspiration">
                 </div>
             </form>
         </div>
     </div>
-    <script type="module" src="src/addCategory.js"></script>
+    <script type="module" src="src/addInspiration.js"></script>
 </body>
 </html>

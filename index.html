@@ -11,42 +11,30 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="d-flex vh-100">
-        <div class="left-section">
-            <img src="test.png" alt="Background">
+    <div class="background"></div>
+
+    <div class="floating-form text-center">
+        <div class="header mb-4">
+            <img src="icon/RV-Logo_WithTitle.png" alt="Room Vision" style="height: 150px;">
+            <h4>Login</h4>
         </div>
-        <div class="right-section text-center">
-            <div class="header">
-                <h1>Room Vision</h1>
-                <br>
-                <h3>Login</h3>
+        <form id="login-form">
+            <div class="form-group mb-3 text-start">
+                <label for="email" class="form-label">Email</label>
+                <input type="text" class="form-control" name="email" id="email" required>
             </div>
-            <div class="content">
-                <form id="login-form">
-                    <div class="form-group mb-3 text-start">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="text" class="form-control" name="email" id="email" required>
-                    </div>
-                    <div class="form-group mb-3 text-start">
-                        <label for="password" class="form-label">Password</label><br>
-                        <input type="text" class="form-control" name="password" id="password" required>
-                    </div>
-                    <div class="text-end mb-3">
-                        <a href="forgotPassword.html">Forgot password?</a>
-                    </div>
-                    <br>
-                    <div class="text-center">
-                        <input type="submit" value="Login" class="mainButton">
-                    </div>
-                </form>
+            <div class="form-group mb-3 text-start">
+                <label for="password" class="form-label">Password</label><br>
+                <input type="password" class="form-control" name="password" id="password" required>
             </div>
-            <div class="footer">
-                <hr>
-                <div class="text-center">
-                    <p>Does not have an account? <a href="register.html" style="font-weight: bold;">Sign up</a> now!</p>
-                </div>
+            <div class="text-end mb-3">
+                <a href="forgotPassword.html">Forgot password?</a>
             </div>
-        </div>
+            <br>
+            <div class="text-center">
+                <input type="submit" value="Login" class="mainButton">
+            </div>
+        </form>
     </div>
 
     <script type="module" src="src/authentication.js"></script>

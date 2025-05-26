@@ -9,50 +9,53 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet">
+
+    <script type="module">
+        import { db } from "./src/firebase.js"
+        import { collection, getDocs} from 'https://www.gstatic.com/firebasejs/11.3.1/firebase-firestore.js';
+      
+        async function loadCategories() {
+            const categorySelect = document.getElementById("category");
+            categorySelect.innerHTML = '<option disabled selected value="">Select a category</option>'; // Clear initial loading option
+            
+            try {
+              const querySnapshot = await getDocs(collection(db, "Category")); // Collection name: 'categories'
+            
+              querySnapshot.forEach((doc) => {
+                const category = doc.data().categoryName; // Assuming each document has a 'name' field
+                const option = document.createElement("option");
+                option.value = category;
+                option.textContent = category;
+                categorySelect.appendChild(option);
+              });
+          
+              if (querySnapshot.empty) {
+                categorySelect.innerHTML = '<option disabled selected>No categories found</option>';
+              }
+          
+            } catch (error) {
+              console.error("Error fetching categories: ", error);
+              categorySelect.innerHTML = '<option disabled selected>Error loading categories</option>';
+            }
+        }
+      
+        loadCategories();
+    </script>
+    <script type="module" src="src/fetchSideBar.js"></script>
 </head>
 <body>
-    <div class="sidebar">
-        <h2 class="title">Room Vision</h2>
-        <hr>
-
-        <ul class="nav flex-column">
-            <li>
-                <a class="nav-link" href="home.html">
-                    <img src="icon/Home.png" alt="Home">
-                    Home
-                </a>
-            </li>
-            <li>
-                <a class="nav-link" href="category.html">
-                    <img src="icon/Category.png" alt="Category">
-                    Categories
-                </a>
-            </li>
-            <li>
-                <a class="nav-link" href="#">
-                    <img src="icon/Furniture.png" alt="Furniture">
-                    Furniture
-                </a>
-            </li>
-            <li>
-                <a class="nav-link" href="inspiration.html">
-                    <img src="icon/Inspiration.png" alt="Inspiration">
-                    Inspiration
-                </a>
-            </li>
-        </ul>
-        <div class="footer">
-            <a class="nav-link" href="">
-                <img src="icon/Profile.png" alt="Profile">
-                Username
-            </a>
-        </div>
+    <div id="sidebar-container">
+        
     </div>
     
     <div id="mainContent" class="main-content">
         <!-- App Bar -->
         <div class="appbar">
-            <h2>Add Furniture</h2>
+            <button id="toggleSidebar" class="sidebar-toggle-btn">☰</button>
+            <h2 style="margin: 0%;">Add Furniture</h2>
         </div>
 
         <!-- Content -->
@@ -62,12 +65,14 @@
                     <label for="furnitureName" class="form-label">Furniture Name</label>
                     <input type="text" class="form-control" name="furnitureName" id="furnitureName" placeholder="Name" required>
                 </div>
-        
+                <br>
                 <div class="form-group">
                     <label for="category" class="form-label">Category</label>
-                    <input type="text" class="form-control" name="category" id="category" placeholder="Category" required>
-                </div>
-        
+                    <select class="form-control" name="category" id="category" required>
+                        <option disabled selected value="">Loading...</option>
+                    </select>
+                </div>                  
+                <br>
                 <div class="form-group">
                     Dimensions
                     <div class="row">
@@ -82,29 +87,27 @@
                         </div>
                     </div>
                 </div>
-        
+                <br>
                 <div class="form-group">
-                    <label for="description" class="form-label">Description</label> 
-                    <input type="text" class="form-control" name="description" id="description" placeholder="About the furniture..." required> 
+                    <label for="description" class="form-label">Description</label>
+                    <div id="editor" class="form-control">
+                        <p>Describe your furniture...</p>
+                    </div>
                 </div>
-        
-                <div class="form-group">
-                    <label for="image" class="form-label">Image Link</label> 
-                    <input type="text" class="form-control" name="image" id="image" required> 
+                <br>
+                <div class="form-group" id="image-div">
+                    <label for="image" class="form-label">Furniture Image</label>
+                    <input type="file" class="form-control" name="image" id="image" placeholder="Image" accept="image/*" required>
                 </div>
-        
-                <div class="form-group">
-                    <label for="model" class="form-label">3D Models</label>
-                    <input type="text" class="form-control" name="model" id="model" required> 
-                </div>
+                <br>
                 <div class="btn-group-lg mt-2 d-flex justify-content-end">
-                    <button type="button" value="Cancel" class="btn btn-default me-3">
-                    <input type="submit" value="Add" class="btn btn-primary" id="uploadFurniture">
+                    <button type="button" class="cancelButton" onclick="window.location.href='furniture.html'">Cancel</button>
+                    <input type="submit" value="Add" class="editFormButton" id="uploadFurniture">
                 </div>
             </form>
         </div>
     <!-- Firebase SDK -->
     <script type="module" src="src/firebase.js"></script>
-    <script type="module" src="src/manageFurniture.js"></script>
+    <script type="module" src="src/addFurniture.js"></script>
 </body>
 </html>

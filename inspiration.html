@@ -9,74 +9,52 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+
+    <script type="module" src="src/fetchSideBar.js"></script>
 </head>
 <body>
-    <div class="sidebar">
-        <h2 class="title">Room Vision</h2>
-        <hr>
-
-        <ul class="nav flex-column">
-            <li>
-                <a class="nav-link" href="home.html">
-                    <img src="icon/Home.png" alt="Home">
-                    Home
-                </a>
-            </li>
-            <li>
-                <a class="nav-link" href="category.html">
-                    <img src="icon/Category.png" alt="Category">
-                    Categories
-                </a>
-            </li>
-            <li>
-                <a class="nav-link" href="furniture.html">
-                    <img src="icon/Furniture.png" alt="Furniture">
-                    Furniture
-                </a>
-            </li>
-            <li>
-                <a class="nav-link" href="#">
-                    <img src="icon/Inspiration.png" alt="Inspiration">
-                    Inspiration
-                </a>
-            </li>
-        </ul>
-        <div class="footer">
-            <a class="nav-link" href="#">
-                <img src="icon/Profile.png" alt="Profile">
-                Username
-            </a>
-        </div>
+    <div id="sidebar-container">
+        
     </div>
-
+    
     <div class="main-content">
         <!-- App Bar -->
         <div class="appbar">
-            <h2>Inspiration</h2>
+            <button id="toggleSidebar" class="sidebar-toggle-btn">☰</button>
+            <h2 style="margin: 0%;">Inspiration</h2>
         </div>
 
         <!-- Page Content -->
         <div style="margin: 10px;">
             <div class="container mt-4">
-                <a type="button" class="addButton">
-                    <img src="icon/Add.png" alt="Add">
-                    Add New Record
-                </a>
+                <div class="d-flex justify-content-between align-items-center">
+                    <a type="button" class="addButton" href="addInspiration.html">
+                        <img src="icon/Add.png" alt="Add">
+                        Add New Record
+                    </a>
+
+                    <div class="searchArea">
+                        <label for="searchInput">Search: </label>
+                        <input type="text" id="searchInput" class="form-control" placeholder="Inspiration">
+                    </div>
+                </div>
+                
                 <br>
                 <table class="table table-bordered custom-table" id="inspirationTable">
                     <thead>
                         <tr>
-                            <th>No.</th>
-                            <th>Image</th>
-                            <th>Title</th>
-                            <th>Description</th>
-                            <th>Actions</th>
+                            <th style="width: 5%;">No.</th>
+                            <th style="width: 25%;">Image</th>
+                            <th style="width: 15%;">Title</th>
+                            <th style="width: 45%;">Description</th>
+                            <th style="width: 10%;">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
             
                     </tbody>
                 </table>
+                <p id="noResults" class="text-center text-muted" style="display: none;">No record found.</p>
             </div>
         </div>
     </div>

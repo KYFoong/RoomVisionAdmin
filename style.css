@@ -12,6 +12,10 @@ th, td {
     vertical-align: middle;
 }
 
+td.align-left{
+    text-align: justify;
+}
+
 .custom-table {
     width: auto;
     min-width: 70%; /* Ensures table is not too small */
@@ -26,11 +30,53 @@ th, td {
     padding: 20px;
     position: fixed;
     width: 250px;
+    transition: width 0.3s;
+    overflow-x: hidden;
+}
+
+.sidebar.collapsed {
+    width: 60px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    flex-direction: column;
+}
+
+.sidebar.collapsed .nav-link span,
+.sidebar.collapsed .title,
+.sidebar.collapsed .footer span{
+    display: none; /* hide text but keep icons */
+}
+
+.sidebar.collapsed .footer {
+    width: auto;
+    justify-content: center;
+}
+
+.sidebar.collapsed .nav-link {
+    justify-content: center; /* <--- center icon horizontally */
+    padding: 10px 5px; /* reduce side padding */
+}
+
+.sidebar .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
 }
 
 .sidebar .title {
     margin-bottom: 20px;
     text-align: center;
+}
+
+.sidebar-toggle-btn {
+    color: #29335C;
+    border: none;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    background: transparent;
 }
 
 .nav-link {
@@ -40,12 +86,13 @@ th, td {
     padding: 10px;
     display: flex;
     align-items: center;
+    border-radius: 10px;
 }
 
 .nav-link img{
     width: 30px;
     height: auto;
-    margin-right: 10px; /* Adds space between the image and text */
+    margin: 0% 2px; /* Adds space between the image and text */
     vertical-align: middle;
 }
 
@@ -62,6 +109,8 @@ th, td {
     width: 85%;
     text-align: center;
     font-size: 18px;
+    cursor: pointer;
+    
 }
 
 .main-content {
@@ -70,8 +119,11 @@ th, td {
 }
 
 .appbar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     background-color: white;
-    padding: 15px;
+    padding: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -103,7 +155,7 @@ th, td {
 
 .right-section .content{
     padding-top: 80px; /* Prevents overlap with the header */
-    padding-bottom: 60px; /* Prevents overlap with the footer */
+    /* padding-bottom: 60px; /* Prevents overlap with the footer */
 }
 
 .right-section .footer{
@@ -136,7 +188,8 @@ th, td {
 /* Hover effect */
 .mainButton:hover,
 .addButton:hover,
-.editButton:hover {
+.editButton:hover,
+.editFormButton:hover {
     background-color: #0072B5; /* Darker blue on hover */
     transform: scale(1.05); /* Slight zoom effect */
 }
@@ -149,7 +202,8 @@ th, td {
 /* Active (when clicked) */
 .mainButton:active,
 .addButton:active,
-.editButton:active {
+.editButton:active,
+.editFormButton:active {
     background-color: #005F90; /* Even darker blue */
     transform: scale(0.98); /* Slight shrink effect */
 }
@@ -182,37 +236,44 @@ th, td {
 }
 
 .editButton{
-    width: 120px;
+    width: 40px;
     height: 40px;
     background-color: #008DDA;
     color: white;
     font-size: 16px; 
     font-weight: bold; 
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     text-decoration: none;
     border: none; 
     border-radius: 5px; 
     cursor: pointer; /* Change cursor on hover */
     transition: background-color 0.3s ease, transform 0.2s ease;
+    margin: 5px;
 }
 
 .deleteButton{
-    width: 120px;
+    width: 40px;
     height: 40px;
     background-color: #FF0000;
     color: white; 
     font-size: 16px;
     font-weight: bold;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     text-decoration: none;
     border: none; 
     border-radius: 5px; 
     cursor: pointer; /* Change cursor on hover */
     transition: background-color 0.3s ease, transform 0.2s ease;
+    margin: 5px;
+}
+
+.actionButtonIcon{
+    width: 35px;
+    height: auto;
 }
 
 .cardSection{
@@ -230,4 +291,155 @@ th, td {
     height: 250px;
     align-items: center;
     justify-content: space-evenly;
+}
+
+.hide {
+    display: none !important;
+}
+
+.description-wrapper{
+    line-height: 1.3em;
+    position: relative;
+}
+
+td.clamp-cell{
+    max-width: auto;       /* Adjust to your layout */
+    height: 5.2em;           /* 1.3em * 4 lines, adjust for your line-height */
+    overflow: hidden;
+    vertical-align: top;     /* Prevent baseline stretching */
+    position: relative;
+}
+
+.clamp-lines {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;       /* Number of lines to show */
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  line-height: 1.3em;
+  max-height: 5.2em;       /* 4 lines * line-height */
+  background: white; 
+}
+
+.clamp-lines.expanded{
+    -webkit-line-clamp: unset;
+    max-height: none;
+    overflow: visible;
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  color: #008DDA;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 4px;
+  font-size: 0.9em;
+}
+
+.editFormButton{
+    width: 120px;
+    height: 40px;
+    background-color: #008DDA;
+    color: white;
+    font-size: 16px; 
+    font-weight: bold; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; /* Change cursor on hover */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin: 5px;
+}
+
+.cancelButton{
+    width: 120px;
+    height: 40px;
+    background-color: white;
+    color: #29335C;
+    font-size: 16px; 
+    font-weight: bold; 
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-decoration: none;
+    border: 1px solid #29335c; 
+    border-radius: 5px; 
+    cursor: pointer; /* Change cursor on hover */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin: 5px;
+}
+
+.cancelButton:hover{
+    background-color: white; 
+    transform: scale(1.05); /* Slight shrink effect */
+}
+
+.cancelButton:active{
+    background-color: white; 
+    transform: scale(0.98); /* Slight shrink effect */
+}
+
+.background{
+    background: url(test.png) no-repeat center center fixed;
+    background-size: cover;
+    position: absolute;
+    top: 0%; left: 0%;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.floating-form {
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  padding: 40px;
+  border-radius: 20px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+}
+
+/* Responsive fallback */
+@media (max-width: 768px) {
+  .floating-form {
+    right: 50%;
+    transform: translate(50%, -50%);
+  }
+}
+
+.form-control {
+  border: 2px solid #29335C;
+  border-radius: 5px;
+  padding: 8px 8px;
+  font-size: 1rem;
+  box-shadow: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* On focus */
+.form-control:focus {
+  border-color: #008DDA;
+  box-shadow: 0 0 0 0.15rem #008DDA;
+  outline: none;
+}
+
+.actionButtonsAlign{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.searchArea{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 30%;
 }
