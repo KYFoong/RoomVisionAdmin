@@ -3,7 +3,7 @@ import { db } from "./firebase.js"
 
 const urlParams = new URLSearchParams(window.location.search);
 const categoryId = urlParams.get("id");
-const cloudName = "dcvgh3vbt";
+const cloudName = ""; // Remove cloud name
 
 let oldCategoryName = "";
 
