@@ -22,10 +22,10 @@
             categorySelect.innerHTML = '<option disabled selected value="">Select a category</option>'; // Clear initial loading option
             
             try {
-              const querySnapshot = await getDocs(collection(db, "Category")); // Collection name: 'categories'
+              const querySnapshot = await getDocs(collection(db, "Category")); 
             
               querySnapshot.forEach((doc) => {
-                const category = doc.data().categoryName; // Assuming each document has a 'name' field
+                const category = doc.data().categoryName; 
                 const option = document.createElement("option");
                 option.value = category;
                 option.textContent = category;

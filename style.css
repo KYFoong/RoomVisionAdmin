@@ -18,7 +18,7 @@ td.align-left{
 
 .custom-table {
     width: auto;
-    min-width: 70%; /* Ensures table is not too small */
+    min-width: 70%; 
     /*margin: auto;  Centers the table */
     table-layout: auto;
 }
@@ -54,8 +54,8 @@ td.align-left{
 }
 
 .sidebar.collapsed .nav-link {
-    justify-content: center; /* <--- center icon horizontally */
-    padding: 10px 5px; /* reduce side padding */
+    justify-content: center;
+    padding: 10px 5px;
 }
 
 .sidebar .nav-link {
@@ -114,8 +114,8 @@ td.align-left{
 }
 
 .main-content {
-    margin-left: 250px; /* Same as sidebar width */
-    width: calc(100% - 250px); /* Ensure it fills the rest */
+    margin-left: 250px; 
+    width: calc(100% - 250px); 
 }
 
 .appbar {
@@ -147,21 +147,21 @@ td.align-left{
 
 .right-section .header{
     position: absolute;
-    top: 20px; /* Small gap from the top */
+    top: 20px; 
     left: 0%;
     text-align: center;
     width: 100%;
 }
 
 .right-section .content{
-    padding-top: 80px; /* Prevents overlap with the header */
-    /* padding-bottom: 60px; /* Prevents overlap with the footer */
+    padding-top: 80px; /* Prevents overlap header */
+    /* padding-bottom: 60px; /* Prevents overlap footer */
 }
 
 .right-section .footer{
     position: absolute;
-    bottom: 20px; /* Small gap from the bottom */
-    left: 0%; /* starts from a very left */
+    bottom: 20px; 
+    left: 0%;
     text-align: center;
     width: 100%;
     padding: 20px;
@@ -171,62 +171,60 @@ td.align-left{
     width: 240px;
     height: 50px;
     background-color: #008DDA;
-    color: white; /* Text color */
-    font-size: 18px; /* Adjust text size */
-    font-weight: bold; /* Make text bold */
+    color: white; 
+    font-size: 18px; 
+    font-weight: bold; 
     display: flex;
     justify-content: center;
     align-items: center;
     text-decoration: none;
-    border: none; /* Remove border */
-    border-radius: 10px; /* Make button rounded */
-    cursor: pointer; /* Change cursor on hover */
+    border: none; 
+    border-radius: 10px; 
+    cursor: pointer; 
     transition: background-color 0.3s ease, transform 0.2s ease;
     margin: 0 auto;
 }
 
-/* Hover effect */
 .mainButton:hover,
 .addButton:hover,
 .editButton:hover,
 .editFormButton:hover {
-    background-color: #0072B5; /* Darker blue on hover */
-    transform: scale(1.05); /* Slight zoom effect */
+    background-color: #0072B5; 
+    transform: scale(1.05);
 }
 
 .deleteButton:hover{
     background-color: #e00000; 
-    transform: scale(1.05); /* Slight shrink effect */
+    transform: scale(1.05); 
 }
 
-/* Active (when clicked) */
 .mainButton:active,
 .addButton:active,
 .editButton:active,
 .editFormButton:active {
-    background-color: #005F90; /* Even darker blue */
-    transform: scale(0.98); /* Slight shrink effect */
+    background-color: #005F90;
+    transform: scale(0.98); 
 }
 
 .deleteButton:active{
     background-color: #c80000; 
-    transform: scale(0.98); /* Slight shrink effect */
+    transform: scale(0.98); 
 }
 
 .addButton{
     width: 220px;
     height: 40px;
     background-color: #008DDA;
-    color: white; /* Text color */
-    font-size: 16px; /* Adjust text size */
-    font-weight: bold; /* Make text bold */
+    color: white; 
+    font-size: 16px; 
+    font-weight: bold; 
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     text-decoration: none;
-    border: none; /* Remove border */
-    border-radius: 25px; /* Make button rounded */
-    cursor: pointer; /* Change cursor on hover */
+    border: none; 
+    border-radius: 25px; 
+    cursor: pointer; 
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
@@ -248,7 +246,7 @@ td.align-left{
     text-decoration: none;
     border: none; 
     border-radius: 5px; 
-    cursor: pointer; /* Change cursor on hover */
+    cursor: pointer; 
     transition: background-color 0.3s ease, transform 0.2s ease;
     margin: 5px;
 }
@@ -266,7 +264,7 @@ td.align-left{
     text-decoration: none;
     border: none; 
     border-radius: 5px; 
-    cursor: pointer; /* Change cursor on hover */
+    cursor: pointer; 
     transition: background-color 0.3s ease, transform 0.2s ease;
     margin: 5px;
 }
@@ -303,10 +301,10 @@ td.align-left{
 }
 
 td.clamp-cell{
-    max-width: auto;       /* Adjust to your layout */
-    height: 5.2em;           /* 1.3em * 4 lines, adjust for your line-height */
+    max-width: auto;       
+    height: 5.2em;           
     overflow: hidden;
-    vertical-align: top;     /* Prevent baseline stretching */
+    vertical-align: top;     
     position: relative;
 }
 
@@ -317,7 +315,7 @@ td.clamp-cell{
   text-overflow: ellipsis;
   overflow: hidden;
   line-height: 1.3em;
-  max-height: 5.2em;       /* 4 lines * line-height */
+  max-height: 5.2em;       
   background: white; 
 }
 
@@ -350,7 +348,7 @@ td.clamp-cell{
     text-decoration: none;
     border: none; 
     border-radius: 5px; 
-    cursor: pointer; /* Change cursor on hover */
+    cursor: pointer; 
     transition: background-color 0.3s ease, transform 0.2s ease;
     margin: 5px;
 }
@@ -368,23 +366,23 @@ td.clamp-cell{
     text-decoration: none;
     border: 1px solid #29335c; 
     border-radius: 5px; 
-    cursor: pointer; /* Change cursor on hover */
+    cursor: pointer; 
     transition: background-color 0.3s ease, transform 0.2s ease;
     margin: 5px;
 }
 
 .cancelButton:hover{
     background-color: white; 
-    transform: scale(1.05); /* Slight shrink effect */
+    transform: scale(1.05); 
 }
 
 .cancelButton:active{
     background-color: white; 
-    transform: scale(0.98); /* Slight shrink effect */
+    transform: scale(0.98); 
 }
 
 .background{
-    background: url(test.png) no-repeat center center fixed;
+    background: url(Background.png) no-repeat center center fixed;
     background-size: cover;
     position: absolute;
     top: 0%; left: 0%;
@@ -423,7 +421,6 @@ td.clamp-cell{
   transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-/* On focus */
 .form-control:focus {
   border-color: #008DDA;
   box-shadow: 0 0 0 0.15rem #008DDA;
