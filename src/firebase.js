@@ -9,14 +9,14 @@ import { getFirestore } from 'https://www.gstatic.com/firebasejs/11.3.1/firebase
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyD8MOanAllTfOHgbsAMW1EhaHNMKIxkH8Q",
-  authDomain: "roomvision-893ec.firebaseapp.com",
-  databaseURL: "https://roomvision-893ec-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "roomvision-893ec",
-  storageBucket: "roomvision-893ec.firebasestorage.app",
-  messagingSenderId: "523771012623",
-  appId: "1:523771012623:web:1936914c9dba7cb79ae57a",
-  measurementId: "G-3ENZQFE6CC"
+  apiKey: "YOUR_API_KEY",
+  authDomain: "your-project.firebaseapp.com",
+  databaseURL: "https://your-database.firebaseio.com",
+  projectId: "your-project-id",
+  storageBucket: "your-project.appspot.com",
+  messagingSenderId: "XXXXXXX",
+  appId: "XXXXXXXXXX",
+  measurementId: "G-XXXXXXX"
 };
 
 // Initialize Firebase
