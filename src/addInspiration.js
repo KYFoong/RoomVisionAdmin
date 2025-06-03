@@ -7,7 +7,7 @@ const quill = new Quill('#editor', {
 
 const urlParams = new URLSearchParams(window.location.search);
 const inspirationId = urlParams.get("id");
-const cloudName = "dcvgh3vbt";
+const cloudName = ""; // Remove cloud name
 
 document.getElementById("image").addEventListener("change", function () {
   const file = this.files[0];
@@ -134,7 +134,7 @@ async function uploadImageFile(file, docId) {
 
   try {
     // Get signed data from Firebase Function
-    const signatureRes = await fetch("https://us-central1-roomvision-893ec.cloudfunctions.net/generateSignature", {
+    const signatureRes = await fetch("https://functions-url", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ folder: folder, public_id: publicId }) 
