@@ -1,4 +1,4 @@
-const cloudName = "dcvgh3vbt";
+const cloudName = ""; // Remove cloud name
 
 export async function deleteImage(type, docId) {
     const folder = type;
@@ -7,8 +7,8 @@ export async function deleteImage(type, docId) {
     console.log("public Id:", publicId);
   
     try {
-      // Get signed data from your Firebase Function
-      const signatureRes = await fetch("https://us-central1-roomvision-893ec.cloudfunctions.net/generateDeleteSignature", {
+      // Get signed data from Firebase Function
+      const signatureRes = await fetch("https://functions-url", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ public_id: publicId }) 
